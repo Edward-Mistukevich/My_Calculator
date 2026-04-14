@@ -29,6 +29,24 @@ public class Calculator {
         }
         return Math.sqrt(a);
     }
+
+    public double sin(double a) {
+        return Math.sin(Math.toRadians(a)); // в градусах
+    }
+
+    public double cos(double a) {
+        return Math.cos(Math.toRadians(a));
+    }
+
+    public double log(double a) throws Exception {
+        if (a <= 0) throw new Exception("Логарифм только от положительных чисел!");
+        return Math.log(a);
+    }
+
+    public double log10(double a) throws Exception {
+        if (a <= 0) throw new Exception("Логарифм только от положительных чисел!");
+        return Math.log10(a);
+    }
     public double calculate(String operation, double a, double b) throws Exception {
         switch (operation) {
             case "+":
@@ -41,9 +59,16 @@ public class Calculator {
                 return divedi(a, b);
             case "^":
                 return power(a, b);
+            case "sin":
+                return sin(a);
+            case "cos":
+                return cos(a);
+            case "log":
+                return log(a);
+            case "log10":
+                return log10(a);
             default:
                 throw new Exception("Неизвестная операция: " + operation);
         }
     }
-
 }
